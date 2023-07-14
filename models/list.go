@@ -1,5 +1,3 @@
 package models
 
-type List {
-	
-}
+type List []Task
