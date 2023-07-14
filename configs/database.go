@@ -16,7 +16,7 @@ const (
 	dbname   = "tododb"
 )
 
-func database() *sql.DB {
+func Database() *sql.DB {
 	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+
 		"password=%s dbname=%s sslmode=disable",
 		host, port, user, password, dbname)
