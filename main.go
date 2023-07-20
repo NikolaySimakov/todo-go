@@ -3,13 +3,17 @@ package main
 import (
 	"log"
 	"net/http"
+	"time"
 
 	"github.com/NikolaySimakov/todo-go/routes"
 )
 
 func main() {
-	err := http.ListenAndServe(":"+"3000", routes.Init())
-	if err != nil {
-		log.Fatal(err)
+	srv := &http.Server{
+		Handler:      routes.Init(),
+		Addr:         "127.0.0.1:3000",
+		WriteTimeout: 15 * time.Second,
+		ReadTimeout:  15 * time.Second,
 	}
+	log.Fatal(srv.ListenAndServe())
 }
