@@ -28,7 +28,7 @@ func Add(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
-	http.Redirect(w, r, "/", 301)
+	http.Redirect(w, r, "/basic", 301)
 }
 
 func Show(w http.ResponseWriter, r *http.Request) {
@@ -72,7 +72,7 @@ func Complete(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
-	http.Redirect(w, r, "/", 301)
+	http.Redirect(w, r, "/basic", 301)
 }
 
 func Delete(w http.ResponseWriter, r *http.Request) {
@@ -87,5 +87,5 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
-	http.Redirect(w, r, "/", 301)
+	http.Redirect(w, r, "/basic", 301)
 }

@@ -50,7 +50,7 @@ func Add(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
-	http.Redirect(w, r, "/", 301)
+	http.Redirect(w, r, "/stack", 301)
 }
 
 // pop task from stack
@@ -59,5 +59,5 @@ func Complete(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
-	http.Redirect(w, r, "/", 301)
+	http.Redirect(w, r, "/stack", 301)
 }

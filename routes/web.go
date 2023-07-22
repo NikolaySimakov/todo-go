@@ -11,10 +11,10 @@ func Init() *mux.Router {
 	route := mux.NewRouter()
 
 	// Basic TODO
-	route.HandleFunc("/", basic.Show).Methods("GET")
-	route.HandleFunc("/", basic.Add).Methods("POST")
-	route.HandleFunc("/{id}", basic.Complete).Methods("PUT")
-	route.HandleFunc("/{id}", basic.Delete).Methods("DELETE")
+	route.HandleFunc("/basic", basic.Show).Methods("GET")
+	route.HandleFunc("/basic", basic.Add).Methods("POST")
+	route.HandleFunc("/basic/{id}", basic.Complete).Methods("PUT")
+	route.HandleFunc("/basic/{id}", basic.Delete).Methods("DELETE")
 
 	// Stack TODO
 	route.HandleFunc("/stack", stack.Current).Methods("GET")
