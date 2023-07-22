@@ -55,8 +55,7 @@ func Add(w http.ResponseWriter, r *http.Request) {
 
 // pop task from stack
 func Complete(w http.ResponseWriter, r *http.Request) {
-	_, err := db.Exec("DELETE FROM tasks ORDER BY id DESC LIMIT 1")
-	if err != nil {
+	if _, err := db.Exec("DELETE FROM tasks WHERE id in (SELECT id FROM tasks ORDER BY id DESC LIMIT 1)"); err != nil {
 		log.Fatal(err)
 	}
 
