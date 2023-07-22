@@ -19,13 +19,11 @@ var (
 
 func Add(w http.ResponseWriter, r *http.Request) {
 
-	// test task
-	task := models.Task{
-		Title:      "qwerty",
-		IsComplete: false,
-	}
+	// getting request body
+	title = r.FormValue("title")
 
-	_, err := db.Exec("INSERT INTO tasks (title, is_completed) VALUES ($1, $2)", task.Title, task.IsComplete)
+	// execute to DB
+	_, err := db.Exec("INSERT INTO tasks (title, is_completed) VALUES ($1, false)", title)
 	if err != nil {
 		log.Fatal(err)
 	}
