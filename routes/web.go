@@ -19,7 +19,7 @@ func Init() *mux.Router {
 	// Stack TODO
 	route.HandleFunc("/stack", stack.Current).Methods("GET")
 	route.HandleFunc("/stack", stack.Add).Methods("POST")
-	route.HandleFunc("/stack/", stack.Complete).Methods("DELETE")
+	route.HandleFunc("/stack", stack.Complete).Methods("DELETE")
 
 	return route
 }
