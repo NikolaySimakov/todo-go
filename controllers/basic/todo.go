@@ -1,7 +1,7 @@
 package basic
 
 import (
-	"fmt"
+	"html/template"
 	"log"
 	"net/http"
 
@@ -9,6 +9,11 @@ import (
 	"github.com/NikolaySimakov/todo-go/models"
 	"github.com/gorilla/mux"
 )
+
+type ViewData struct {
+	PageTitle string
+	Tasks     models.List
+}
 
 var (
 	id        int
@@ -57,7 +62,13 @@ func Show(w http.ResponseWriter, r *http.Request) {
 		})
 	}
 
-	fmt.Println(tasks)
+	data := ViewData{
+		PageTitle: "Basic TODO example",
+		Tasks:     tasks,
+	}
+
+	tmpl, _ := template.ParseFiles("public/views/basic.html")
+	tmpl.Execute(w, data)
 }
 
 func Complete(w http.ResponseWriter, r *http.Request) {
