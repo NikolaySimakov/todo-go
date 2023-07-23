@@ -15,5 +15,7 @@ func main() {
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
 	}
+
+	log.Printf("Server will start at http://%s\n", srv.Addr)
 	log.Fatal(srv.ListenAndServe())
 }
