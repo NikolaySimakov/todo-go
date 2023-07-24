@@ -6,7 +6,19 @@ It's a simple TODO API on Golang.
 
 ## Routes
 
-- GET: /
-- POST: /add
-- UPDATE: /complete/{id}
-- DELETE: /delete/{id}
+### Basic TODO
+
+Сlassic to-do list.
+
+- GET: /basic
+- POST: /basic
+- UPDATE: /basic/{id}
+- DELETE: /basic/{id}
+
+### Stack TODO
+
+Implementation of the LIFO principle for a list of tasks.
+
+- GET: /stack
+- POST: /stack
+- DELETE: /stack
