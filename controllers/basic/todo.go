@@ -63,11 +63,11 @@ func Show(w http.ResponseWriter, r *http.Request) {
 	}
 
 	data := ViewData{
-		PageTitle: "Basic TODO example",
+		PageTitle: "Tasks list",
 		Tasks:     tasks,
 	}
 
-	tmpl, _ := template.ParseFiles("public/views/basic.html")
+	tmpl, _ := template.ParseFiles("public/basic.html")
 	tmpl.Execute(w, data)
 }
 
